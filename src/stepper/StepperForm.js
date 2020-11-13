@@ -3,6 +3,8 @@ import { makeStyles } from "@material-ui/core/styles";
 import Stepper from "@material-ui/core/Stepper";
 import Step from "@material-ui/core/Step";
 import StepLabel from "@material-ui/core/StepLabel";
+import Address from "../address/Address";
+import Payment from "../payment/Payment";
 // import Button from "@material-ui/core/Button";
 // import Typography from "@material-ui/core/Typography";
 
@@ -27,18 +29,18 @@ function getSteps() {
   ];
 }
 
-// function getStepContent(stepIndex) {
-//   switch (stepIndex) {
-//     case 0:
-//       return "Select campaign settings...";
-//     case 1:
-//       return "What is an ad group anyways?";
-//     case 2:
-//       return "This is the bit I really care about!";
-//     default:
-//       return "Unknown stepIndex";
-//   }
-// }
+function getStepContent(stepIndex) {
+  switch (stepIndex) {
+    case 0:
+      return <Address />;
+    case 1:
+      return <Payment />;
+    case 2:
+      return "This is the bit I really care about!";
+    default:
+      return "Unknown stepIndex";
+  }
+}
 
 const StepperForm = () => {
   const classes = useStyles();
@@ -54,6 +56,7 @@ const StepperForm = () => {
           </Step>
         ))}
       </Stepper>
+      {getStepContent(getSteps())}
     </div>
   );
 };
