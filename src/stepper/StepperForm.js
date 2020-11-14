@@ -22,19 +22,15 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 function getSteps() {
-  return [
-    "Select master blaster campaign settings",
-    "Create an ad group",
-    "Create an ad",
-  ];
+  return ["Address Details", "Payment Details", "Review"];
 }
 
-function getStepContent(stepIndex) {
+function getStepContent(stepIndex, setStep) {
   switch (stepIndex) {
     case 0:
-      return <Address />;
+      return <Address submit={setStep} />;
     case 1:
-      return <Payment />;
+      return <Payment submit={setStep} />;
     case 2:
       return "This is the bit I really care about!";
     default:
@@ -56,7 +52,7 @@ const StepperForm = () => {
           </Step>
         ))}
       </Stepper>
-      {getStepContent(getSteps())}
+      {getStepContent(activeStep, setActiveStep)}
     </div>
   );
 };

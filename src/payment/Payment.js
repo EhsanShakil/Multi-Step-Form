@@ -2,7 +2,7 @@ import React from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 
-const Payment = () => {
+const Payment = ({ submit }) => {
   return (
     <Formik
       initialValues={{
@@ -10,7 +10,7 @@ const Payment = () => {
         CVV: "",
         Expire_Date: "",
       }}
-      onSubmit={(values) => console.log(values)}
+      onSubmit={(values) => submit(2)}
       validationSchema={Yup.object({
         Card_Number: Yup.number().required("Card Number is required"),
         CVV: Yup.number().required("CVV is required"),
@@ -20,20 +20,21 @@ const Payment = () => {
       {(formik) => (
         <Form>
           <div>
-            <label htmlFor="Card_Number">First Name</label>
-            <Field id="Card_Number" type="text" name="Card_Number" />
+            <label htmlFor="Card_Number">Card Number</label>
+            <Field id="Card_Number" type="number" name="Card_Number" />
             <ErrorMessage name="Card_Number" />
           </div>
           <div>
-            <label htmlFor="CVV">Last Name</label>
-            <Field id="CVV" type="text" name="CVV" />
+            <label htmlFor="CVV">CVV</label>
+            <Field id="CVV" type="number" name="CVV" />
             <ErrorMessage name="CVV" />
           </div>
           <div>
-            <label htmlFor="Expire_Date">Address</label>
-            <Field id="Expire_Date" type="text" name="Expire_Date" />
+            <label htmlFor="Expire_Date">Expire Date</label>
+            <Field id="Expire_Date" type="date" name="Expire_Date" />
             <ErrorMessage name="Expire_Date" />
           </div>
+          <button type="submit">Submit</button>
         </Form>
       )}
     </Formik>
