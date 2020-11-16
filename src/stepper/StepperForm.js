@@ -32,7 +32,7 @@ function getStepContent(stepIndex, setStep, formValues, setFormValues) {
       return (
         <Address
           submit={setStep}
-          previousValues={formValues}
+          // previousValues={formValues}
           setFormValues={setFormValues}
         />
       );
@@ -40,7 +40,7 @@ function getStepContent(stepIndex, setStep, formValues, setFormValues) {
       return (
         <Payment
           submit={setStep}
-          previousValues={formValues}
+          // previousValues={formValues}
           setFormValues={setFormValues}
         />
       );
@@ -56,7 +56,7 @@ const StepperForm = () => {
   const [activeStep, setActiveStep] = React.useState(0);
   const [formValues, setFormValues] = React.useState({});
   const steps = getSteps();
-
+  console.log(formValues);
   return (
     <div className={classes.root}>
       <Stepper activeStep={activeStep} alternativeLabel>
