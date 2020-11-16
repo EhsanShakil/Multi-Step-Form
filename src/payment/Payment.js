@@ -2,7 +2,7 @@ import React from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 
-const Payment = ({ submit }) => {
+const Payment = ({ submit, setFormValues, previousValues }) => {
   return (
     <Formik
       initialValues={{
@@ -10,7 +10,10 @@ const Payment = ({ submit }) => {
         CVV: "",
         Expire_Date: "",
       }}
-      onSubmit={(values) => submit(2)}
+      onSubmit={(values) => {
+        submit(2);
+        setFormValues({ ...values, ...previousValues });
+      }}
       validationSchema={Yup.object({
         Card_Number: Yup.number().required("Card Number is required"),
         CVV: Yup.number().required("CVV is required"),
