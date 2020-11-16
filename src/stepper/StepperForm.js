@@ -5,6 +5,7 @@ import Step from "@material-ui/core/Step";
 import StepLabel from "@material-ui/core/StepLabel";
 import Address from "../address/Address";
 import Payment from "../payment/Payment";
+import Review from "../review/Review";
 // import Button from "@material-ui/core/Button";
 // import Typography from "@material-ui/core/Typography";
 
@@ -25,14 +26,26 @@ function getSteps() {
   return ["Address Details", "Payment Details", "Review"];
 }
 
-function getStepContent(stepIndex, setStep) {
+function getStepContent(stepIndex, setStep, formValues, setFormValues) {
   switch (stepIndex) {
     case 0:
-      return <Address submit={setStep} />;
+      return (
+        <Address
+          submit={setStep}
+          previousValues={formValues}
+          setFormValues={setFormValues}
+        />
+      );
     case 1:
-      return <Payment submit={setStep} />;
+      return (
+        <Payment
+          submit={setStep}
+          previousValues={formValues}
+          setFormValues={setFormValues}
+        />
+      );
     case 2:
-      return "This is the bit I really care about!";
+      return <Review values={formValues} />;
     default:
       return "Unknown stepIndex";
   }
@@ -41,6 +54,7 @@ function getStepContent(stepIndex, setStep) {
 const StepperForm = () => {
   const classes = useStyles();
   const [activeStep, setActiveStep] = React.useState(0);
+  const [formValues, setFormValues] = React.useState({});
   const steps = getSteps();
 
   return (
@@ -52,7 +66,7 @@ const StepperForm = () => {
           </Step>
         ))}
       </Stepper>
-      {getStepContent(activeStep, setActiveStep)}
+      {getStepContent(activeStep, setActiveStep, setFormValues, formValues)}
     </div>
   );
 };
