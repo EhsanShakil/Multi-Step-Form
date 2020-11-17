@@ -2,7 +2,7 @@ import React from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 
-const Address = ({ submit, setFormValues }) => {
+const Address = ({ submit, setFormValues, previousValues }) => {
   return (
     <Formik
       initialValues={{
@@ -13,8 +13,8 @@ const Address = ({ submit, setFormValues }) => {
         city: "",
       }}
       onSubmit={(values) => {
-        setFormValues({ ...values });
         submit(1);
+        setFormValues({ ...values, ...previousValues });
       }}
       validationSchema={Yup.object({
         firstName: Yup.string().required("First Name is required"),

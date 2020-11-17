@@ -32,7 +32,7 @@ function getStepContent(stepIndex, setStep, formValues, setFormValues) {
       return (
         <Address
           submit={setStep}
-          // previousValues={formValues}
+          previousValues={formValues}
           setFormValues={setFormValues}
         />
       );
@@ -40,7 +40,7 @@ function getStepContent(stepIndex, setStep, formValues, setFormValues) {
       return (
         <Payment
           submit={setStep}
-          // previousValues={formValues}
+          previousValues={formValues}
           setFormValues={setFormValues}
         />
       );
