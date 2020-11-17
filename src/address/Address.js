@@ -5,16 +5,11 @@ import * as Yup from "yup";
 const Address = ({ submit, setFormValues, previousValues }) => {
   return (
     <Formik
-      initialValues={{
-        firstName: "",
-        lastName: "",
-        address: "",
-        zipCode: "",
-        city: "",
-      }}
+      initialValues={previousValues}
       onSubmit={(values) => {
+        console.log(values.firstName);
         submit(1);
-        setFormValues({ ...values, ...previousValues });
+        setFormValues({ ...values });
       }}
       validationSchema={Yup.object({
         firstName: Yup.string().required("First Name is required"),

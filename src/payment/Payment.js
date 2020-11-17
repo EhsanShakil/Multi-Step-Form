@@ -5,12 +5,9 @@ import * as Yup from "yup";
 const Payment = ({ submit, setFormValues, previousValues }) => {
   return (
     <Formik
-      initialValues={{
-        Card_Number: "",
-        CVV: "",
-        Expire_Date: "",
-      }}
+      initialValues={previousValues}
       onSubmit={(values) => {
+        console.log(values.Card_Number);
         submit(2);
         setFormValues({ ...values, ...previousValues });
       }}
