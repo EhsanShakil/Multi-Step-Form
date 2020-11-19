@@ -1,6 +1,7 @@
 import React from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
+import { TextField } from "@material-ui/core";
 
 const Address = ({ submit, setFormValues, prevValues }) => {
   return (
@@ -27,29 +28,74 @@ const Address = ({ submit, setFormValues, prevValues }) => {
       <Form>
         <div>
           <label htmlFor="firstName">First Name</label>
-          <Field id="firstName" type="text" name="firstName" />
+          <Field
+            as={TextField}
+            variant="outlined"
+            label="First Name"
+            id="firstName"
+            type="text"
+            name="firstName"
+          />
+          <br />
           <ErrorMessage name="firstName" />
         </div>
+        <br />
         <div>
           <label htmlFor="lastName">Last Name</label>
-          <Field id="lastName" type="text" name="lastName" />
+          <Field
+            as={TextField}
+            variant="outlined"
+            label="Last Name"
+            id="lastName"
+            type="text"
+            name="lastName"
+          />
+          <br />
           <ErrorMessage name="lastName" />
         </div>
+        <br />
         <div>
           <label htmlFor="address">Address</label>
-          <Field id="address" type="text" name="address" />
+          <Field
+            as={TextField}
+            variant="outlined"
+            label="Address"
+            id="address"
+            type="text"
+            name="address"
+          />
+          <br />
           <ErrorMessage name="address" />
         </div>
+        <br />
         <div>
           <label htmlFor="zipCode">Zip Code</label>
-          <Field id="zipCode" type="text" name="zipCode" />
+          <Field
+            as={TextField}
+            variant="outlined"
+            label="Zip Code"
+            id="zipCode"
+            type="text"
+            name="zipCode"
+          />
+          <br />
           <ErrorMessage name="zipCode" />
         </div>
+        <br />
         <div>
           <label htmlFor="city">City</label>
-          <Field id="city" type="text" name="city" />
+          <Field
+            as={TextField}
+            variant="outlined"
+            label="City"
+            id="city"
+            type="text"
+            name="city"
+          />
+          <br />
           <ErrorMessage name="city" />
         </div>
+        <br />
         <button type="submit">Submit</button>
       </Form>
     </Formik>
