@@ -20,7 +20,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 function getSteps() {
-  return ["Add Address", "Add payment", "Review"];
+  return ["Add Address", "Add payment", "Review", "Submitted"];
 }
 
 function getStepContent(stepIndex, setStep, setFormValues, formValues) {
@@ -42,7 +42,9 @@ function getStepContent(stepIndex, setStep, setFormValues, formValues) {
         />
       );
     case 2:
-      return <Review values={formValues} />;
+      return <Review submit={setStep} values={formValues} />;
+    case 3:
+      return "Your details have been submitted successfully";
     default:
       return "Unknown stepIndex";
   }

@@ -1,6 +1,6 @@
 import React from "react";
 
-const Review = ({ values }) => {
+const Review = ({ submit, values }) => {
   return (
     <div>
       <p>First Name: {values.firstName}</p>
@@ -11,6 +11,7 @@ const Review = ({ values }) => {
       <p>Card Number: {values.Card_Number}</p>
       <p>CVV: {values.CVV}</p>
       <p>Expire Date: {values.Expire_Date}</p>
+      <button onClick={() => submit(3)}>Submit</button>
     </div>
   );
 };
